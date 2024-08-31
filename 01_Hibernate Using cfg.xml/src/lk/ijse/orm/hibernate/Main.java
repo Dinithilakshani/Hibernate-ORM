@@ -16,6 +16,7 @@ public class Main {
         System.out.println("hii");
         Session session = SessionFactoryConfig.getInstance().getSession();
         System.out.println("hvhvhbjbj");
+        System.out.println("bhghbj");
 
         Transaction transaction = session.beginTransaction();
         session.save(customer);
