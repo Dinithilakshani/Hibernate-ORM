@@ -13,8 +13,9 @@ public class Main {
         customer.setName("Kamal");
         customer.setAddress("Galle");
         customer.setSalary(25000.00);
-
+        System.out.println("hii");
         Session session = SessionFactoryConfig.getInstance().getSession();
+        System.out.println("hvhvhbjbj");
 
         Transaction transaction = session.beginTransaction();
         session.save(customer);
