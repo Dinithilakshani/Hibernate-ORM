@@ -11,7 +11,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         Customer customer = new Customer();
-        customer.setId(2);
+        customer.setId(3);
         customer.setName("Kamal");
         customer.setAddress("Galle");
         customer.setSalary(25000.00);

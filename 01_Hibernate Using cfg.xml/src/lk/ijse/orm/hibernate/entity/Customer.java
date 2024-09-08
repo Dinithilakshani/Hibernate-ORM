@@ -1,35 +1,39 @@
 package lk.ijse.orm.hibernate.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
-@Table (name = "customer")
+@Table(name = "customer")
+
 public class Customer {
+   @Id
+   @GeneratedValue(strategy = GenerationType.IDENTITY)
+   @Column(name = ("customer_id"))
+   private int id;
 
-    @Id
-    @Column (name = "customer_id")
-    private int id;
-
-    @Column (name = "customer_name")
-    private String name;
-
-    @Column (name = "customer_address")
-    private String address;
-
-    @Column (name = "customer_salary")
-    private double salary;
-
-    public Customer() {
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", orders=" + orders +
+                '}';
     }
 
-    public Customer(int id, String name, String address, double salary) {
+    @Column(name = ("customer_name"))
+    private String name;
+
+    @Column(name = ("customer_address"))
+    private String address;
+
+    public Customer() {
         this.id = id;
         this.name = name;
         this.address = address;
-        this.salary = salary;
+        this.orders = orders;
     }
 
     public int getId() {
@@ -56,13 +60,20 @@ public class Customer {
         this.address = address;
     }
 
-    public double getSalary() {
-        return salary;
+    public List<Order> getOrders() {
+        return orders;
     }
 
-    public void setSalary(double salary) {
-        this.salary = salary;
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
     }
+
+    @OneToMany(cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY,mappedBy = "customer")
+    private List<Order> orders = new ArrayList<>();
+
+
+
 
 
 }
