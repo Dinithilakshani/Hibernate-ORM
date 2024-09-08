@@ -1,6 +1,7 @@
 package lk.ijse.orm.hibernate.config;
 
 import lk.ijse.orm.hibernate.entity.Customer;
+import lk.ijse.orm.hibernate.entity.Item;
 import lk.ijse.orm.hibernate.entity.Order;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -32,6 +33,7 @@ public class SessionFactoryConfig {
              .configure()
              .addAnnotatedClass(Customer.class)
              .addAnnotatedClass(Order.class)
+             .addAnnotatedClass(Item.class)
              .buildSessionFactory();
     }
 

@@ -47,6 +47,7 @@ public class Main {
         customer.setName("Dinu");
         customer.setAddress("Galle");
 
+
         Session session = SessionFactoryConfig.getInstance().getSession();
 
         Transaction transaction = session.beginTransaction();
